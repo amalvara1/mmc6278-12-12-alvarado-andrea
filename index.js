@@ -36,20 +36,20 @@ class Word {
       let correctAnswer = []
       for (let i = 0; i < this.word.length; i++) {
         if(this.word[i]===letter){
-          correctAnswer = array[i];
+          correctAnswer.push[i];
         }  
       }
       
-    let newWord = ''
+    let newDisplayWord = ''
     for(let index =0; index < this.displayWord.length; index++) {
-      const element = this.displayWord[index];
+      const element = this.displayWord[index]
       if (correctAnswer.includes(index)) {
-        newWord = newWord + letter
+        newDisplayWord = newDisplayWord + letter
       } else {
-        newWord = newWord + element
+        newDisplayWord = newDisplayWord + element
       }
     }
-      this.displayWord = newWord
+      this.displayWord = newDisplayWord
     } else {
       this.incorrectLetters.push(letter)
       this.remainingGuesses --
