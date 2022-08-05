@@ -80,7 +80,6 @@ class Word {
   };
 
   // implement the getWinOrLoss function:
-  // getWinOrLoss() {}
   getWinOrLoss(){
     if(this.displayWord!==this.word&&this.remainingGuesses>0){
       return null
