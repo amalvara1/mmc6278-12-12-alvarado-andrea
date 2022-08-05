@@ -27,15 +27,71 @@ class Word {
 
   // implement the guessLetter function:
   // guessLetter(letter) {}
+  guessLetter(letter){
+    if (this.correctLetters.includes(letter)||(this.incorrectLetters.includes(letter))) {
+      return  
+    }
+    if (this.word.includes(letter)) {
+      this.correctLetters.push(letter)
+      let correctAnswer = []
+      for (let i = 0; i < this.word.length; i++) {
+        if(this.word[i]===letter){
+          correctAnswer = array[i];
+        }  
+      }
+      
+    let newWord = ''
+    for(let index =0; index < this.displayWord.length; index++) {
+      const element = this.displayWord[index];
+      if (correctAnswer.includes(index)) {
+        newWord = newWord + letter
+      } else {
+        newWord = newWord + element
+      }
+    }
+      this.displayWord = newWord
+    } else {
+      this.incorrectLetters.push(letter)
+      this.remainingGuesses --
+    }
+  }
+
+
+    
 
   // implement the updateScreen function:
   // updateScreen() {}
+  updateScreen(){
+    document.getElementById("incorrect-letters").innerHTML = this.incorrectLetters ;
+    document.getElementById("remaining-guesses").innerHTML = this.remainingGuesses ;
+    document.getElementById("word-to-guess").innerHTML = this.displayWord ;
+  }
+
 
   // implement the isGameOver function:
   // isGameOver() {}
+  isGameOver(){
+    if(this.displayWord!==this.word&&this.remainingGuesses>0){
+      return false
+    } else {
+      return true
+    }
+
+  };
 
   // implement the getWinOrLoss function:
   // getWinOrLoss() {}
+  getWinOrLoss(){
+    if(this.displayWord!==this.word&&this.remainingGuesses>0){
+      return null
+    }
+    if(this.displayWord==this.word&&this.remainingGuesses>0){
+      return 'win'
+    }
+    if(this.remainingGuesses<=0&&this.displayWord!==this.word){
+      return 'loss'
+    }
+  }
 }
 
 function newGame() {
